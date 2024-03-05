@@ -1,0 +1,17 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message.message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if item_added %}
+<div class="item-details">
+    <h2>Item Added Successfully!</h2>
+    <p><strong>Name:</strong> {{ item_added.name }}</p>
+    <p><strong>Description:</strong> {{ item_added.description }}</p>
+    <p><strong>Color:</strong> {{ item_added.color }}</p>
+    <p><strong>Date Lost:</strong> {{ item_added.date_lost }}</p>
+</div>
+{% endif %}
