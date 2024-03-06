@@ -7,7 +7,11 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
@@ -59,7 +63,7 @@
               <a class="nav-link" href="index.html">Found Items</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="report_missing_item.html"
+              <a class="nav-link" href="{% url 'report_missing_item' %}"
                 >Report Lost Items</a
               >
             </li>
@@ -101,7 +105,7 @@
                   alt="man, detective, investigation"
                   data-bss-parallax=""
                   data-bss-parallax-speed="0.8"
-                  src="assets/img/ge4f79ba04e51048be960db0d17645dd6f4d3a70913e99968526faad7a5d8f00af4cdb8fc28857168bc2d68a138e18444822d80e5b745745e8ae741a9c52cb996_640.jpg"
+                  src="{% static 'assets/img/ge4f79ba04e51048be960db0d17645dd6f4d3a70913e99968526faad7a5d8f00af4cdb8fc28857168bc2d68a138e18444822d80e5b745745e8ae741a9c52cb996_640.jpg' %}"
                   width="417"
                   height="417"
                   style="
@@ -123,7 +127,7 @@
                   alt="posts, submit, searching"
                   data-bss-parallax=""
                   data-bss-parallax-speed="0.4"
-                  src="assets/img/g40517603dcfd21f13469b1aaf414ccf59aa371df3c2f7f23c88bbc9b83757ad3d49b690e023b0fcaae14ae40b4c34d0fb4350fe6ae5468e99325b2eb5bdb671f_640.png"
+                  src="{% static 'assets/img/g40517603dcfd21f13469b1aaf414ccf59aa371df3c2f7f23c88bbc9b83757ad3d49b690e023b0fcaae14ae40b4c34d0fb4350fe6ae5468e99325b2eb5bdb671f_640.png' %}"
                   style="padding-left: 0px; margin-left: -44px"
                 />
               </div>
@@ -139,7 +143,7 @@
                   alt="craft, wooden, treasure"
                   data-bss-parallax=""
                   data-bss-parallax-speed="0.25"
-                  src="assets/img/g4931c3182bd38a9abf53a124a034089c33ced5a14922ec341f7c52b459d5c5bc667342fe096cc517fda29191e3e28d9881d22e4d2531581777ba08bb5f06d07e_640.jpg"
+                  src="{% static 'assets/img/g4931c3182bd38a9abf53a124a034089c33ced5a14922ec341f7c52b459d5c5bc667342fe096cc517fda29191e3e28d9881d22e4d2531581777ba08bb5f06d07e_640.jpg' %}"
                   style="padding-top: 0px; margin-top: -70px"
                 />
               </div>
@@ -269,7 +273,7 @@
                   class="rounded-circle flex-shrink-0 me-3 fit-cover"
                   width="50"
                   height="50"
-                  src="assets/img/team/avatar2.jpg"
+                  src="{% static 'assets/img/team/avatar2.jpg' %}"
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">John Smith</p>
@@ -291,7 +295,7 @@
                   class="rounded-circle flex-shrink-0 me-3 fit-cover"
                   width="50"
                   height="50"
-                  src="assets/img/team/avatar4.jpg"
+                  src="{% static 'assets/img/team/avatar4.jpg' %}"
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">John Smith</p>
@@ -313,7 +317,7 @@
                   class="rounded-circle flex-shrink-0 me-3 fit-cover"
                   width="50"
                   height="50"
-                  src="assets/img/team/avatar5.jpg"
+                  src="{% static 'assets/img/team/avatar5.jpg' %}"
                 />
                 <div>
                   <p class="fw-bold text-primary mb-0">John Smith</p>
@@ -543,7 +547,7 @@
         </div>
       </div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bold-and-dark.js"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/bold-and-dark.js' %}"></script>
   </body>
 </html>
