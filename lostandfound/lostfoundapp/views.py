@@ -6,7 +6,6 @@ from django.contrib import messages  # Import messages
 from .forms import MissingItemForm
 
 
-@csrf_exempt
 def report_missing_item(request):
     item_added = None  # Initialize variable to check if item was added
 
@@ -35,3 +34,11 @@ def report_missing_item(request):
 
     return render(request, 'index.html', {'form': form,
                                           'item_added': item_added})
+
+
+def landing_page(request):
+    return render(request, 'index.html')
+
+
+def report_missing_item(request):
+    return render(request, 'report_missing_item.html')
