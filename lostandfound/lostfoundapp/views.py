@@ -48,3 +48,11 @@ def report_missing_item(request):
 
 def landing_page(request):
     return render(request, 'index.html')
+
+
+def signup_page(request):
+    return render(request, 'signup.html')
+
+
+def login_page(request):
+    return render(request, 'login.html')
