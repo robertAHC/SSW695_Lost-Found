@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Report Missing Items</title>
+    <title>Report Missing Items - Brand</title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -54,17 +54,13 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'landing_page' %}"
-                >Home</a
-              >
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}">Lost Items</a>
+              <a class="nav-link" href="services.html">Lost Items</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}"
-                >Found Items</a
-              >
+              <a class="nav-link" href="projects.html">Found Items</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'report_missing_item' %}"
@@ -72,41 +68,18 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}"
-                >Report Found Items</a
-              >
+              <a class="nav-link" href="pricing.html">Report Found Items</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}">Contact Us</a>
+              <a class="nav-link" href="contacts.html">Contact Us</a>
             </li>
           </ul>
-          <a
-            class="btn btn-primary shadow"
-            role="button"
-            href="{% url 'signup_page' %}"
+          <a class="btn btn-primary shadow" role="button" href="signup.html"
             >Sign up</a
           >
         </div>
       </div>
     </nav>
-    <section>
-      <div class="container">
-        {% if messages %} {% for message in messages %}
-        <div
-          class="alert alert-{{ message.tags }} alert-dismissible fade show"
-          role="alert"
-        >
-          {{ message }}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-        {% endfor %} {% endif %}
-      </div>
-    </section>
     <section class="py-5">
       <div class="container py-5">
         <div class="row mb-4 mb-lg-5">
@@ -121,41 +94,14 @@
               <div
                 class="card-body text-center d-flex flex-column align-items-center"
               >
-                <form method="post">
-                  {% csrf_token %}
-
-                  <div class="mb-3">
-                    <label class="form-label">Item Name</label
-                    ><input class="form-control" type="text" name="name" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Description</label
-                    ><textarea
-                      class="form-control"
-                      name="description"
-                    ></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">color</label
-                    ><input class="form-control" type="text" name="color" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label"
-                      >Date Lost<input
-                        class="form-control"
-                        type="date"
-                        name="date_lost"
-                    /></label>
-                  </div>
-                  <div class="mb-3">
-                    <button
-                      class="btn btn-primary shadow d-block w-100"
-                      type="submit"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </form>
+                <h1>Missing Item Detail</h1>
+                <p><strong>Name:</strong> {{ item.name }}</p>
+                <p><strong>Description:</strong> {{ item.description }}</p>
+                <p><strong>Color:</strong> {{ item.color }}</p>
+                <p><strong>Date Lost:</strong> {{ item.date_lost }}</p>
+                <a href="{% url 'report_missing_item' %}"
+                  >Report Another Item</a
+                >
               </div>
             </div>
           </div>
