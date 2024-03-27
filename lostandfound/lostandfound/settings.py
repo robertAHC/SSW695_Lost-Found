@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'lostfoundapp'
+    'lostfoundapp',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,12 @@ DATABASES = {
     }
 }
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AWS_ACCESS_KEY_ID = 'AKIASCIEMAMFWPD2VN72'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'teameagle'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
