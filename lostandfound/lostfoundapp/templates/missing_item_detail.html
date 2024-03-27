@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Report Missing Items - Brand</title>
+    <title>Lost Items Details - Brand</title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -54,13 +54,19 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link active" href="{% url 'landing_page' %}"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="services.html">Lost Items</a>
+              <a class="nav-link" href="{% url 'missing_items_list' %}"
+                >Lost Items</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="projects.html">Found Items</a>
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Found Items</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'report_missing_item' %}"
@@ -68,13 +74,18 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pricing.html">Report Found Items</a>
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Report Found Items</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contacts.html">Contact Us</a>
+              <a class="nav-link" href="{% url 'landing_page' %}">Contact Us</a>
             </li>
           </ul>
-          <a class="btn btn-primary shadow" role="button" href="signup.html"
+          <a
+            class="btn btn-primary shadow"
+            role="button"
+            href="{% url 'signup_page' %}"
             >Sign up</a
           >
         </div>
@@ -82,23 +93,26 @@
     </nav>
     <section class="py-5">
       <div class="container py-5">
-        <div class="row mb-4 mb-lg-5">
-          <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold text-success mb-2"></p>
-            <h2 class="fw-bold">Report Lost Items</h2>
-          </div>
-        </div>
         <div class="row d-flex justify-content-center">
           <div class="col-md-6 col-xl-4">
             <div class="card">
               <div
                 class="card-body text-center d-flex flex-column align-items-center"
               >
-                <h1>Missing Item Detail</h1>
+                <h1>Lost Item Detail</h1>
                 <p><strong>Name:</strong> {{ item.name }}</p>
                 <p><strong>Description:</strong> {{ item.description }}</p>
                 <p><strong>Color:</strong> {{ item.color }}</p>
                 <p><strong>Date Lost:</strong> {{ item.date_lost }}</p>
+                {% if item.photo %}
+                <div class="mb-3">
+                  <img
+                    src="{{ item.photo.url }}"
+                    class="img-fluid"
+                    alt="Missing Item Photo"
+                  />
+                </div>
+                {% endif %}
                 <a href="{% url 'report_missing_item' %}"
                   >Report Another Item</a
                 >
