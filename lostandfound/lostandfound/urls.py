@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
 from lostfoundapp.views import report_missing_item, landing_page, missing_item_detail, loginPage, logoutUser
+=======
+from django.conf.urls.static import static
+from django.conf import settings
+from lostfoundapp.views import report_missing_item, landing_page, missing_item_detail, signup_page, login_page
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
 urlpatterns = [
     # robert adds
     path('login/', loginPage, name='login'),
@@ -26,6 +32,14 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('report-missing-item/', report_missing_item, name='report_missing_item'),
     path('', landing_page, name='landing_page'),
+<<<<<<< HEAD
     path('missing-item/<int:item_id>/',
          missing_item_detail, name='missing_item_detail'),
 ]
+=======
+    path('sign-up/', signup_page, name='signup_page'),
+    path('log-in/', login_page, name='login_page'),
+    path('missing-item/<int:item_id>/',
+         missing_item_detail, name='missing_item_detail'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405

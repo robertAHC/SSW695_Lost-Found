@@ -6,7 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
+<<<<<<< HEAD
     <title>Report Missing Items - Brand</title>
+=======
+    <title>Report Missing Items</title>
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
     {% load static %}
     <link
       rel="stylesheet"
@@ -54,6 +58,7 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
+<<<<<<< HEAD
               <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
@@ -61,6 +66,21 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="projects.html">Found Items</a>
+=======
+              <a class="nav-link active" href="{% url 'landing_page' %}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'missing_items_list' %}"
+                >Lost Items</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Found Items</a
+              >
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'report_missing_item' %}"
@@ -68,6 +88,7 @@
               >
             </li>
             <li class="nav-item">
+<<<<<<< HEAD
               <a class="nav-link" href="pricing.html">Report Found Items</a>
             </li>
             <li class="nav-item">
@@ -75,10 +96,46 @@
             </li>
           </ul>
           <a class="btn btn-primary shadow" role="button" href="{% url 'logout' %}">Log out</a
+=======
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Report Found Items</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}">Contact Us</a>
+            </li>
+          </ul>
+          <a
+            class="btn btn-primary shadow"
+            role="button"
+            href="{% url 'signup_page' %}"
+            >Sign up</a
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
           >
         </div>
       </div>
     </nav>
+<<<<<<< HEAD
+=======
+    <section>
+      <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div
+          class="alert alert-{{ message.tags }} alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endfor %} {% endif %}
+      </div>
+    </section>
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
     <section class="py-5">
       <div class="container py-5">
         <div class="row mb-4 mb-lg-5">
@@ -93,6 +150,7 @@
               <div
                 class="card-body text-center d-flex flex-column align-items-center"
               >
+<<<<<<< HEAD
                 <form method="post">
                   <div class="mb-3">
                     <label class="form-label">Item Name</label
@@ -112,6 +170,49 @@
                     /></label>
                   </div>
                   <div class="mb-3">
+=======
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                  <div class="mb-3">
+                    <label class="form-label">Item Name</label
+                    ><input class="form-control" type="text" name="name" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Description</label
+                    ><textarea
+                      class="form-control"
+                      name="description"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">color</label
+                    ><input class="form-control" type="text" name="color" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"
+                      >Date Lost<input
+                        class="form-control"
+                        type="date"
+                        name="date_lost"
+                    /></label>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="fileInput"
+                      >Upload Image</label
+                    >
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="fileInput"
+                      name="photo"
+                    />
+                    <div class="form-text">
+                      Upload an image of the lost item.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
                     <button
                       class="btn btn-primary shadow d-block w-100"
                       type="submit"
@@ -120,6 +221,7 @@
                     </button>
                   </div>
                 </form>
+<<<<<<< HEAD
 
                 <br>
                 <h1> Missing items </h1>
@@ -155,16 +257,21 @@
                     </tr>
                   </tbody>
                 </table>
+=======
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+<<<<<<< HEAD
 
     
 
 
+=======
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
     <footer class="bg-dark">
       <div class="container py-4 py-lg-5">
         <div class="row justify-content-center">

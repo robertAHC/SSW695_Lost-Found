@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html><html data-bs-theme="light" lang="en" style="color: var(--bs-body-color);"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>LostandFound[1]</title><link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=4a137410e50fe91a22b09a0763454a44"><link rel="stylesheet" href="/assets/css/styles.min.css?h=8f0cc6aecdadeae8f6d235fe7bc872f9"></head><body style="margin: 0px;margin-top: 0px;color: var(--bs-body-color);"><h1 style="margin-bottom: 6px;padding-bottom: 0px;padding-top: 57px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<strong>Signup</strong></h1><input type="text" style="width: 215.2px;margin: 275px;margin-top: 37px;margin-right: 259px;padding: 3px 2px;text-align: left;margin-left: 274px;" placeholder="Name"><input type="text" style="width: 218.2px;min-width: 1px;height: 33.8px;min-height: 13px;margin: 299px;margin-top: -88px;margin-right: 0px;margin-bottom: -54px;margin-left: 272px;max-height: 39px;max-width: 231px;color: #8e9193;" placeholder="Password" value="Password"><button class="btn btn-primary" type="button" style="padding: 9.6px 32px 5px;padding-bottom: 5px;margin: -203px;margin-top: -36px;margin-bottom: -206px;margin-left: -203px;">Create Account</button><div style="margin-right: 0;margin-top: -234px;margin-bottom: -40px;margin-left: 274px;"><input type="text" style="width: 215.2px;margin: -175;margin-top: 0;margin-right: 0;padding: 3px 2px;text-align: left;margin-left: 0;margin-bottom: 0;color: var(--bs-body-color);background: var(--bs-body-color);" placeholder="Email"></div><input type="text" style="padding: 3px 2px;margin-right: 0px;margin-top: 80px;padding-right: 0px;padding-left: 0px;margin-left: 271px;margin-bottom: 0px;color: #788694;" placeholder="Contact Number" value="Contact Number" data-bs-theme="light"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script><script src="/assets/js/script.min.js?h=9a9b12d9479055b6ccf322643488f6dd"></script></body></html>
-=======
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
   <head>
@@ -9,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Sign Up</title>
+    <title>Lost Items Details - Brand</title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -62,7 +59,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}">Lost Items</a>
+              <a class="nav-link" href="{% url 'missing_items_list' %}"
+                >Lost Items</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'landing_page' %}"
@@ -94,65 +93,29 @@
     </nav>
     <section class="py-5">
       <div class="container py-5">
-        <div class="row mb-4 mb-lg-5">
-          <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold text-success mb-2">Sign Up</p>
-            <h2 class="fw-bold">Welcome</h2>
-          </div>
-        </div>
         <div class="row d-flex justify-content-center">
           <div class="col-md-6 col-xl-4">
             <div class="card">
               <div
                 class="card-body text-center d-flex flex-column align-items-center"
               >
-                <div
-                  class="bs-icon-xl bs-icon-circle bs-icon-primary shadow bs-icon my-4"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    class="bi bi-person"
-                  >
-                    <path
-                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"
-                    ></path>
-                  </svg>
+                <h1>Lost Item Detail</h1>
+                <p><strong>Name:</strong> {{ item.name }}</p>
+                <p><strong>Description:</strong> {{ item.description }}</p>
+                <p><strong>Color:</strong> {{ item.color }}</p>
+                <p><strong>Date Lost:</strong> {{ item.date_lost }}</p>
+                {% if item.photo %}
+                <div class="mb-3">
+                  <img
+                    src="{{ item.photo.url }}"
+                    class="img-fluid"
+                    alt="Missing Item Photo"
+                  />
                 </div>
-                <form method="post">
-                  <div class="mb-3">
-                    <input
-                      class="form-control"
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      class="form-control"
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <button
-                      class="btn btn-primary shadow d-block w-100"
-                      type="submit"
-                    >
-                      Sign Up
-                    </button>
-                  </div>
-                  <p class="text-muted">Forgot your password?</p>
-                  <p class="text-muted">
-                    Already have an account?
-                    <a href="{% url 'login_page' %}">Log In here</a>
-                  </p>
-                </form>
+                {% endif %}
+                <a href="{% url 'report_missing_item' %}"
+                  >Report Another Item</a
+                >
               </div>
             </div>
           </div>
@@ -250,8 +213,7 @@
         </div>
       </div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bold-and-dark.js"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/bold-and-dark.js' %}"></script>
   </body>
 </html>
->>>>>>> 74c25a0972047e4e0931784dd57099863d48e405

@@ -6,7 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
+<<<<<<< HEAD
     <title>Home - Brand</title>
+=======
+    <title>Home</title>
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
     {% load static %}
     <link
       rel="stylesheet"
@@ -19,9 +23,12 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <!-- Robert code test 
     <a href="{% url 'login' %}" > login</a>
     -->
+=======
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
     <nav
       class="navbar navbar-expand-md sticky-top py-3 navbar-dark"
       id="mainNav"
@@ -57,6 +64,7 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
+<<<<<<< HEAD
               <a class="nav-link active" href="index.html">Home</a>
             </li>
             <li class="nav-item">
@@ -64,6 +72,19 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.html">Found Items</a>
+=======
+              <a class="nav-link active" href="{% url 'landing_page' %}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}">Lost Items</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Found Items</a
+              >
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'report_missing_item' %}"
@@ -71,6 +92,7 @@
               >
             </li>
             <li class="nav-item">
+<<<<<<< HEAD
               <a class="nav-link" href="index.html">Report Found Items</a>
             </li>
             <li class="nav-item">
@@ -79,6 +101,21 @@
           </ul>
           <a class="btn btn-primary shadow" role="button" href="{% url 'login' %}"
             >Log in</a
+=======
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Report Found Items</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}">Contact Us</a>
+            </li>
+          </ul>
+          <a
+            class="btn btn-primary shadow"
+            role="button"
+            href="{% url 'signup_page' %}"
+            >Sign up</a
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
           >
         </div>
       </div>
@@ -155,7 +192,187 @@
         </div>
       </div>
     </header>
+<<<<<<< HEAD
     
+=======
+    <section class="py-5">
+      <div class="container text-center py-5">
+        <p class="mb-4" style="font-size: 1.6rem">
+          Find What You've Lost or Help Others Reclaim Theirs !
+        </p>
+        <a href="#"> </a><a href="#"> </a><a href="#"> </a><a href="#"> </a
+        ><a href="#"> </a>
+      </div>
+    </section>
+    <section>
+      <div class="container bg-dark py-5">
+        <div class="row">
+          <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <p class="fw-bold text-success mb-2">Lost something ?</p>
+            <h3 class="fw-bold">We're here to help!</h3>
+          </div>
+        </div>
+        <div class="py-5 p-lg-5">
+          <div
+            class="row row-cols-1 row-cols-md-2 mx-auto"
+            style="max-width: 900px"
+          >
+            <div class="col mb-5">
+              <div class="card shadow-sm">
+                <div class="card-body px-4 py-5 px-md-5">
+                  <div
+                    class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
+                    style="top: 1rem; right: 1rem; position: absolute"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      class="bi bi-search text-success"
+                    >
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h5 class="fw-bold card-title">Lost Something ?</h5>
+                  <p class="text-muted card-text mb-4">
+                    Don't worry, our community is here to help.<br />Report your
+                    lost item with a few simple steps and let our network work
+                    for you.
+                  </p>
+                  <button class="btn btn-primary shadow" type="button">
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-5">
+              <div class="card shadow-sm">
+                <div class="card-body px-4 py-5 px-md-5">
+                  <div
+                    class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
+                    style="top: 1rem; right: 1rem; position: absolute"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      class="bi bi-search text-success"
+                    >
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h5 class="fw-bold card-title">Found Something ?</h5>
+                  <p class="text-muted card-text mb-4">
+                    Your small act can make a big difference. Report the found
+                    item and let's reunite it with its owner.
+                  </p>
+                  <button class="btn btn-primary shadow" type="button">
+                    Learn more
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card shadow-sm"></div>
+            </div>
+            <div class="col mb-4">
+              <div class="card shadow-sm"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section></section>
+    <section class="py-5 mt-5">
+      <div class="container py-5">
+        <div class="row mb-5">
+          <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <p class="fw-bold text-success mb-2">Testimonials</p>
+            <h2 class="fw-bold"><strong>What People Say About us</strong></h2>
+            <p class="text-muted">Real Stories from Our Community.&nbsp;</p>
+          </div>
+        </div>
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 d-sm-flex justify-content-sm-center"
+        >
+          <div class="col mb-4">
+            <div
+              class="d-flex flex-column align-items-center align-items-sm-start"
+            >
+              <p class="bg-dark border rounded border-dark p-4">
+                Nisi sit justo faucibus nec ornare amet, tortor torquent.
+                Blandit class dapibus, aliquet morbi.
+              </p>
+              <div class="d-flex">
+                <img
+                  class="rounded-circle flex-shrink-0 me-3 fit-cover"
+                  width="50"
+                  height="50"
+                  src="{% static 'assets/img/team/avatar2.jpg' %}"
+                />
+                <div>
+                  <p class="fw-bold text-primary mb-0">John Smith</p>
+                  <p class="text-muted mb-0">Erat netus</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div
+              class="d-flex flex-column align-items-center align-items-sm-start"
+            >
+              <p class="bg-dark border rounded border-dark p-4">
+                Nisi sit justo faucibus nec ornare amet, tortor torquent.
+                Blandit class dapibus, aliquet morbi.
+              </p>
+              <div class="d-flex">
+                <img
+                  class="rounded-circle flex-shrink-0 me-3 fit-cover"
+                  width="50"
+                  height="50"
+                  src="{% static 'assets/img/team/avatar4.jpg' %}"
+                />
+                <div>
+                  <p class="fw-bold text-primary mb-0">John Smith</p>
+                  <p class="text-muted mb-0">Erat netus</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div
+              class="d-flex flex-column align-items-center align-items-sm-start"
+            >
+              <p class="bg-dark border rounded border-dark p-4">
+                Nisi sit justo faucibus nec ornare amet, tortor torquent.
+                Blandit class dapibus, aliquet morbi.
+              </p>
+              <div class="d-flex">
+                <img
+                  class="rounded-circle flex-shrink-0 me-3 fit-cover"
+                  width="50"
+                  height="50"
+                  src="{% static 'assets/img/team/avatar5.jpg' %}"
+                />
+                <div>
+                  <p class="fw-bold text-primary mb-0">John Smith</p>
+                  <p class="text-muted mb-0">Erat netus</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+>>>>>>> 74c25a0972047e4e0931784dd57099863d48e405
     <section class="py-5">
       <div class="container">
         <div class="row mb-5">
