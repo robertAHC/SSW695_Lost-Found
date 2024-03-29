@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Report Missing Items</title>
+    <title>Report Missing Items - Brand</title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -54,17 +54,13 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'landing_page' %}"
-                >Home</a
-              >
+              <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}">Lost Items</a>
+              <a class="nav-link" href="services.html">Lost Items</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}"
-                >Found Items</a
-              >
+              <a class="nav-link" href="projects.html">Found Items</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'report_missing_item' %}"
@@ -72,19 +68,13 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}"
-                >Report Found Items</a
-              >
+              <a class="nav-link" href="pricing.html">Report Found Items</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}">Contact Us</a>
+              <a class="nav-link" href="contacts.html">Contact Us</a>
             </li>
           </ul>
-          <a
-            class="btn btn-primary shadow"
-            role="button"
-            href="{% url 'signup_page' %}"
-            >Sign up</a
+          <a class="btn btn-primary shadow" role="button" href="{% url 'logout' %}">Log out</a
           >
         </div>
       </div>
@@ -130,12 +120,51 @@
                     </button>
                   </div>
                 </form>
+
+                <br>
+                <h1> Missing items </h1>
+                <br>
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Item #</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Item</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Robert</td>
+                      <td>Hernandez</td>
+                      <td>Student ID Card</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Aayushi</td>
+                      <td>Desai</td>
+                      <td>Apple pencil</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Meet</td>
+                      <td>Jain</td>
+                      <td>Sunglasses</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    
+
+
     <footer class="bg-dark">
       <div class="container py-4 py-lg-5">
         <div class="row justify-content-center">
