@@ -90,6 +90,16 @@
       </div>
     </nav>
     <section class="py-5">
+      <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+      {% endif %} 
+
+      </div>
       <div class="container py-5">
         <div class="row mb-4 mb-lg-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
@@ -119,7 +129,8 @@
                     ></path>
                   </svg>
                 </div>
-                <form method="post">
+                <form method="POST" action="{% url 'signup_page' %}">
+                  {% csrf_token %}
                   <div class="mb-3">
                     <input
                       class="form-control"
