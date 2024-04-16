@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from lostfoundapp.views import report_missing_item
-
+from django.conf.urls.static import static
+from django.conf import settings
+from lostfoundapp.views import report_missing_item, landing_page, missing_item_detail, signup_page, login_page, missing_items_list, logoutUser, contactUs
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('report-missing-item/', report_missing_item, name='report_missing_item'),
+    path('', landing_page, name='landing_page'),
+    path('sign-up/', signup_page, name='signup_page'),
+    path('log-in/', login_page, name='login_page'),
+    path('logout/', logoutUser, name='logout'),
+    path('contact-us/', contactUs, name='contactUs'),
+    path('missing-item/<int:item_id>/', missing_item_detail, name='missing_item_detail'),
+    path('missing-items/', missing_items_list, name='missing_items_list'),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

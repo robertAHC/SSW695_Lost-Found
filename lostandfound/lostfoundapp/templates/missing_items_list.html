@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Report Missing Items</title>
+    <title>Missing Items</title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -54,12 +54,14 @@
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'landing_page' %}">Home</a>
+              <a class="nav-link active" href="{% url 'landing_page' %}"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'missing_items_list' %}" >Lost Items</a>
-            </li>
-            <li class="nav-item">
+              <a class="nav-link" href="{% url 'report_missing_item' %}"
+                >Report Lost Items</a
+              >
             </li>
             <li class="nav-item">
             </li>
@@ -70,109 +72,48 @@
             class="btn btn-primary shadow"
             role="button"
             href="{% url 'logout' %}"
-            >Log Out</a
+            >Log out</a
           >
         </div>
       </div>
     </nav>
-    <section>
-      <div class="container">
-        {% if messages %} {% for message in messages %}
-        <div
-          class="alert alert-{{ message.tags }} alert-dismissible fade show"
-          role="alert"
-        >
-          {{ message }}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-        {% endfor %} {% endif %}
-      </div>
-    </section>
+
     <section class="py-5">
       <div class="container py-5">
-        <div class="row mb-4 mb-lg-5">
-          <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <p class="fw-bold text-success mb-2"></p>
-            <h2 class="fw-bold">Report Lost Items</h2>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-6 col-xl-4">
+        <h2>Welcome <span class="text-primary"> {{ user.first_name }} </span> </h2>       
+        <br>
+  
+        <h3>List of Lost Items</h3>
+
+        <div class="row">
+          {% for item in items %}
+          <div class="col-md-4 mb-4">
             <div class="card">
-              <div
-                class="card-body text-center d-flex flex-column align-items-center"
-              >
-                <form method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <div class="mb-3">
-                    <label class="form-label">Name</label
-                    ><input class="form-control" type="text" name="username" />
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label">Last Name</label
-                    ><input class="form-control" type="text" name="lastname" />
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label">Email</label
-                    ><input class="form-control" type="email" name="email" />
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label">Item Name</label
-                    ><input class="form-control" type="text" name="name" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Description</label
-                    ><textarea
-                      class="form-control"
-                      name="description"
-                    ></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">color</label
-                    ><input class="form-control" type="text" name="color" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label"
-                      >Date Lost<input
-                        class="form-control"
-                        type="date"
-                        name="date_lost"
-                    /></label>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="fileInput"
-                      >Upload Image</label
-                    >
-                    <input
-                      class="form-control"
-                      type="file"
-                      id="fileInput"
-                      name="photo"
-                    />
-                    <div class="form-text">
-                      Upload an image of the lost item.
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <button
-                      class="btn btn-primary shadow d-block w-100"
-                      type="submit"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </form>
+              {% if item.photo %}
+              <img
+                src="{{ item.photo.url }}"
+                class="card-img-top"
+                alt="Missing Item"
+                onerror="this.style.display='none'"
+              />
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text">{{ item.description }}</p>
+                <p class="card-text">
+                  <small class="text-muted">Lost on {{ item.date_lost }}</small>
+                </p>
+                <a
+                  href="{% url 'missing_item_detail' item.pk %}"
+                  class="btn btn-primary"
+                  >View Details</a
+                >
               </div>
             </div>
           </div>
+          {% empty %}
+          <p>No missing items to display.</p>
+          {% endfor %}
         </div>
       </div>
     </section>
