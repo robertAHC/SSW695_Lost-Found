@@ -26,6 +26,8 @@ SECRET_KEY = "django-insecure-wui%5vc%a0^a+^n44s41^a#)3yal1k=%wfu8%clyb9)fmuw*!p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -36,8 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'lostfoundapp',
-    'storages'
+    'lostfoundapp'
 ]
 
 MIDDLEWARE = [
@@ -48,7 +49,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",    
 ]
 
 ROOT_URLCONF = "lostandfound.urls"
@@ -117,18 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'lostfoundapp', 'templates'),
-]
-
-
-
-LOGING_REDIRECT_URL = 'login_page'
-
-LOGIN_URL = 'login_page'
-
+STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -145,13 +134,3 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-AWS_ACCESS_KEY_ID = 'AKIASCIEMAMFWPD2VN72'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'teameagle'
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
