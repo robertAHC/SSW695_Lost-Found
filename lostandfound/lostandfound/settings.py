@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-wui%5vc%a0^a+^n44s41^a#)3yal1k=%wfu8%clyb9)fmuw*!p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ssw695-lost-found-765102a4f2d0.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -49,7 +50,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",    
 ]
 
 ROOT_URLCONF = "lostandfound.urls"
@@ -126,9 +126,6 @@ STATICFILES_DIRS = [
 
 
 
-LOGING_REDIRECT_URL = 'login_page'
-
-LOGIN_URL = 'login_page'
 
 
 # Default primary key field type
@@ -150,9 +147,9 @@ DATABASES = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AWS_ACCESS_KEY_ID = 'AKIASCIEMAMFWPD2VN72'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'teameagle'
+AWS_ACCESS_KEY_ID = 'AKIA46A2QEB4CHOINXEB'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'ssw695lostandfound'
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'

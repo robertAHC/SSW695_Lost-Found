@@ -197,19 +197,18 @@ def missing_items_list(request):
     else:
         items = MissingItem.objects.all()
     return render(request, 'missing_items_list.html', {'items': items, 'query': query})
-@login_required
+
 def update_missing_item(request, item_id):
     item = get_object_or_404(MissingItem, pk=item_id)
-    
     if request.method == 'POST':
         form = MissingItemForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Missing item updated successfully!')
-            return redirect('missing_item_detail', item_id=item.id)
+            #messages.success(request, 'Missing item updated successfully!')
+            return redirect('missing_items_list')  # or another appropriate view
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
         form = MissingItemForm(instance=item)
-    
+
     return render(request, 'update_missing_item.html', {'form': form})
