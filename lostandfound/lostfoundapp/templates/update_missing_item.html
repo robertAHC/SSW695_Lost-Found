@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Missing Items</title>
+    <title>Report Missing Items</title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -59,10 +59,11 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'report_missing_item' %}"
-                >Report Lost Items</a
+              <a class="nav-link" href="{% url 'missing_items_list' %}"
+                >Lost Items</a
               >
             </li>
+            <li class="nav-item"></li>
             <li class="nav-item"></li>
             <li class="nav-item"></li>
           </ul>
@@ -70,64 +71,55 @@
             class="btn btn-primary shadow"
             role="button"
             href="{% url 'logout' %}"
-            >Log out</a
+            >Log Out</a
           >
         </div>
       </div>
     </nav>
-
+    <section>
+      <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div
+          class="alert alert-{{ message.tags }} alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endfor %} {% endif %}
+      </div>
+    </section>
     <section class="py-5">
       <div class="container py-5">
-        <h2>
-          Welcome <span class="text-primary"> {{ user.first_name }} </span>
-        </h2>
-        <br />
-        <form method="get" action="{% url 'missing_items_list' %}">
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              name="query"
-              class="form-control"
-              placeholder="Search items..."
-              value="{{ query }}"
-            />
-            <button class="btn btn-outline-secondary" type="submit">
-              Search
-            </button>
+        <div class="row mb-4 mb-lg-5">
+          <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <p class="fw-bold text-success mb-2"></p>
+            <h2 class="fw-bold">Report Lost Items</h2>
           </div>
-        </form>
-
-        <h3>List of Lost Items</h3>
-
-        <div class="row">
-          {% for item in items %}
-          <div class="col-md-4 mb-4">
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6 col-xl-4">
             <div class="card">
-              {% if item.photo %}
-              <img
-                src="{{ item.photo.url }}"
-                class="card-img-top"
-                alt="Missing Item"
-                onerror="this.style.display='none'"
-              />
-              {% endif %}
-              <div class="card-body">
-                <h5 class="card-title">{{ item.name }}</h5>
-                <p class="card-text">{{ item.description }}</p>
-                <p class="card-text">
-                  <small class="text-muted">Lost on {{ item.date_lost }}</small>
-                </p>
-                <a
-                  href="{% url 'missing_item_detail' item.pk %}"
-                  class="btn btn-primary"
-                  >View Details</a
-                >
+              <div
+                class="card-body text-center d-flex flex-column align-items-center"
+              >
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %} {{ form.as_p }}
+                  <button
+                    class="btn btn-primary shadow d-block w-100"
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                </form>
               </div>
             </div>
           </div>
-          {% empty %}
-          <p>No missing items to display.</p>
-          {% endfor %}
         </div>
       </div>
     </section>

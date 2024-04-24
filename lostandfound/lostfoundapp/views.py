@@ -3,6 +3,7 @@ from django.http import Http404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.db.models import Q
 
 # from lostandfound.lostandfound.settings import EMAIL_HOST_PASSWORD, EMAIL_HOST_USER  # Import messages
 from .forms import MissingItemForm
@@ -188,16 +189,18 @@ def contactUs(request):
 
 @login_required
 def missing_items_list(request):
-    items = MissingItem.objects.all()  # Retrieve all missing items from the database
-    return render(request, 'missing_items_list.html', {'items': items})
-
-def missing_items_list(request):
-    items = MissingItem.objects.all()  
-    return render(request, 'missing_items_list.html', {'items': items})
-
-
+    query = request.GET.get('query', '')  # Get the search query from the GET request
+    if query:
+        items = MissingItem.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query) | Q(color__icontains=query)
+        )
+    else:
+        items = MissingItem.objects.all()
+    return render(request, 'missing_items_list.html', {'items': items, 'query': query})
+@login_required
 def update_missing_item(request, item_id):
     item = get_object_or_404(MissingItem, pk=item_id)
+    
     if request.method == 'POST':
         form = MissingItemForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
@@ -208,5 +211,5 @@ def update_missing_item(request, item_id):
             messages.error(request, 'Please correct the errors below.')
     else:
         form = MissingItemForm(instance=item)
+    
     return render(request, 'update_missing_item.html', {'form': form})
-

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from lostfoundapp.views import report_missing_item, landing_page, missing_item_detail, signup_page, login_page, missing_items_list, logoutUser, contactUs
+from lostfoundapp.views import report_missing_item, landing_page, missing_item_detail, signup_page, login_page, missing_items_list, logoutUser, contactUs, update_missing_item
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('report-missing-item/', report_missing_item, name='report_missing_item'),
@@ -29,5 +29,7 @@ urlpatterns = [
     path('missing-item/<int:item_id>/',
          missing_item_detail, name='missing_item_detail'),
     path('missing-items/', missing_items_list, name='missing_items_list'),
+    path('update-missing-item/<int:item_id>/', update_missing_item, name='update_missing_item'),  # New URL for updating items
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -102,6 +102,12 @@
                   />
                 </div>
                 {% endif %}
+                <a
+                  href="{% url 'update_missing_item' item.id %}"
+                  class="btn btn-info"
+                  >Update This Item</a
+                >
+
                 <a href="{% url 'report_missing_item' %}"
                   >Report Another Item</a
                 >
