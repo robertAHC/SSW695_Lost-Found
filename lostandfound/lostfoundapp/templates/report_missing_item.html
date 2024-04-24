@@ -63,30 +63,15 @@
                 >Lost Items</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}"
-                >Found Items</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'report_missing_item' %}"
-                >Report Lost Items</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}"
-                >Report Found Items</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'landing_page' %}">Contact Us</a>
-            </li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
           </ul>
           <a
             class="btn btn-primary shadow"
             role="button"
-            href="{% url 'signup_page' %}"
-            >Sign up</a
+            href="{% url 'logout' %}"
+            >Log Out</a
           >
         </div>
       </div>
@@ -125,6 +110,20 @@
               >
                 <form method="post" enctype="multipart/form-data">
                   {% csrf_token %}
+                  <div class="mb-3">
+                    <label class="form-label">Name</label
+                    ><input class="form-control" type="text" name="username" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Last Name</label
+                    ><input class="form-control" type="text" name="lastname" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Email</label
+                    ><input class="form-control" type="email" name="email" />
+                  </div>
 
                   <div class="mb-3">
                     <label class="form-label">Item Name</label
