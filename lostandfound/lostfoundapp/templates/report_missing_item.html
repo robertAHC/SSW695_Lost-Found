@@ -59,41 +59,36 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'missing_items_list' %}"
-                >Lost Items</a
+              <a class="nav-link" href="{% url 'landing_page' %}">Lost Items</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Found Items</a
               >
             </li>
-            <li class="nav-item"></li>
-            <li class="nav-item"></li>
-            <li class="nav-item"></li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'report_missing_item' %}"
+                >Report Lost Items</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}"
+                >Report Found Items</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'landing_page' %}">Contact Us</a>
+            </li>
           </ul>
           <a
             class="btn btn-primary shadow"
             role="button"
-            href="{% url 'logout' %}"
-            >Log Out</a
+            href="{% url 'signup_page' %}"
+            >Sign up</a
           >
         </div>
       </div>
     </nav>
-    <section>
-      <div class="container">
-        {% if messages %} {% for message in messages %}
-        <div
-          class="alert alert-{{ message.tags }} alert-dismissible fade show"
-          role="alert"
-        >
-          {{ message }}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-        {% endfor %} {% endif %}
-      </div>
-    </section>
     <section class="py-5">
       <div class="container py-5">
         <div class="row mb-4 mb-lg-5">
@@ -108,59 +103,23 @@
               <div
                 class="card-body text-center d-flex flex-column align-items-center"
               >
-                <form method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <div class="mb-3">
-                    <label class="form-label">Name</label
-                    ><input class="form-control" type="text" name="username" />
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label">Last Name</label
-                    ><input class="form-control" type="text" name="lastname" />
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label">Email</label
-                    ><input class="form-control" type="email" name="email" />
-                  </div>
-
+                <form method="post">
                   <div class="mb-3">
                     <label class="form-label">Item Name</label
-                    ><input class="form-control" type="text" name="name" />
+                    ><input class="form-control" type="text" />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Description</label
-                    ><textarea
-                      class="form-control"
-                      name="description"
-                    ></textarea>
+                    ><textarea class="form-control"></textarea>
                   </div>
                   <div class="mb-3">
                     <label class="form-label">color</label
-                    ><input class="form-control" type="text" name="color" />
+                    ><input class="form-control" type="text" />
                   </div>
                   <div class="mb-3">
                     <label class="form-label"
-                      >Date Lost<input
-                        class="form-control"
-                        type="date"
-                        name="date_lost"
+                      >Date Lost<input class="form-control" type="date"
                     /></label>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="fileInput"
-                      >Upload Image</label
-                    >
-                    <input
-                      class="form-control"
-                      type="file"
-                      id="fileInput"
-                      name="photo"
-                    />
-                    <div class="form-text">
-                      Upload an image of the lost item.
-                    </div>
                   </div>
                   <div class="mb-3">
                     <button

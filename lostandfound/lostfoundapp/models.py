@@ -10,7 +10,6 @@ class MissingItem(models.Model):
     description = models.TextField()
     color = models.CharField(max_length=50)
     date_lost = models.DateField()
-    photo = models.ImageField(upload_to='missing_items_photos/', null=True, blank=True) 
 
     def __str__(self):
         return self.name
